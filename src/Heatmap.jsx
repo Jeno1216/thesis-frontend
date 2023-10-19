@@ -47,7 +47,7 @@ function HeatMap() {
         console.log(data)
         
         try {
-            const response = await axios.post('https://safetypin-backend.onrender.com/heatmap', data);
+            const response = await axios.post('https://thesis-backend-41ta.onrender.com/heatmap', data);
             console.log(response.data);
             setMapHtml(response.data.html);
             setSubmitted(true);
