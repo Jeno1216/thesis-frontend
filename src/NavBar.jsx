@@ -1,5 +1,6 @@
 import React from 'react'
 import myImage from './assets/logo.png'; // Import the image
+import { Link } from 'react-router-dom'; // Import the Link component from 'react-router-dom'
 
 function NavBar() {
   return (
@@ -13,11 +14,11 @@ function NavBar() {
         <div className='d-flex  h-100 justify-content-center align-items-center gap-4 p-3'>
 
         <div className='' >
-        <a href="#" style={{textDecoration: 'none', color: 'black'}}>Route</a>
+        <Link to='/' style={{textDecoration: 'none', color: 'black'}}>Route</Link>
         </div>
 
         <div>
-        <a href="#" style={{textDecoration: 'none', color: 'black'}} >Heatmap</a>
+        <Link to='heatmap' style={{textDecoration: 'none', color: 'black'}} >Heatmap</Link>
         </div>
         </div>
 
