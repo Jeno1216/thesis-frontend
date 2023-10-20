@@ -19,6 +19,13 @@ function HeatMap() {
     const [mapHtml, setMapHtml] = useState(null);
     const [submitted, setSubmitted] = useState(false);
 
+    const [isVisible, setIsVisible] = useState(false); // State to control visibility
+
+    const handleButtonClick = () => {
+        setIsVisible(!isVisible); // Toggle the visibility
+    };
+
+
     useEffect(() => {
         const map = L.map('map').setView([10.706512, 122.581742], 12);
          
@@ -192,6 +199,157 @@ function HeatMap() {
        
 
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <button
+        className="bi-stack btn btn-primary"
+        style={{
+            borderRadius: '10px',
+            position: 'absolute',
+            top: '10px',
+            left: '10px',
+            zIndex: 999,
+            fontSize: '14px',
+        }}
+        onClick={handleButtonClick} // Add an onClick handler to toggle visibility
+    >
+       &nbsp; Heatmap 
+    </button>
+
+    {isVisible && ( // Conditionally render the second form based on isVisible state
+
+      <div className="d-lg-none  d-md-none py-4 px-3 d-sm-none d-flex flex-column gap-2 col-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 999, fontSize: '14px'}}>
+            <div className=' text-start'>
+                <h4>Iloilo City Crime Visualization</h4>
+                <p>
+                Please use the dropdowns below to select your preferences and visualize credible crime data in heatmaps for Iloilo City. This data is sourced from the local police, ensuring reliability and accuracy. Your selections will help generate visual representations of crime patterns, providing valuable insights into the city's safety and security.
+
+                </p>
+            </div>
+        <form onSubmit={handleSubmit} className=' text-start d-flex flex-column'>
+            <hr />
+        <div className='px-3 gap-2 d-flex'>
+                <label className='w-50 '>
+                    Day:
+                </label>
+                <select className='w-50' value={day} onChange={e => setDay(e.target.value)}>
+                    <option value="">All Day</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+            </div>
+
+            <hr />
+
+            <div className='px-3 gap-2 d-flex'>
+                <label className='w-50 '>
+                    Month:
+                </label>
+                <select className='w-50' value={month} onChange={e => setMonth(e.target.value)}>
+                    <option value="">All Months</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+            </div>
+
+            <hr />
+            
+            <div className='px-3 gap-2 d-flex'>
+            <label className='w-50 '>
+                    Year:
+                </label>
+                <select className='w-50' value={year} onChange={e => setYear(e.target.value)}>
+                    <option value="">All Year</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+
+            <hr />
+
+            <div className='px-3 gap-2 d-flex'>
+            <label className='w-50 '>
+                    District: 
+                </label>
+                <select className='w-50' value={district} onChange={e => setDistrict(e.target.value)}>
+                    <option value="">All Districts</option>
+                    <option value="Arevalo">Arevalo</option>
+                    <option value="Mandurriao">Mandurriao</option>
+                    <option value="Jaro">Jaro</option>
+                    <option value="Molo">Molo</option>
+                    <option value="City Proper">City Proper</option>
+                    <option value="Lapaz">Lapaz</option>
+                    {/* Add more options as needed */}
+                </select>
+            </div>
+
+            <hr />
+
+            <div className='px-3  gap-2 d-flex'>
+            <label className='w-50 '>
+                    Category:
+                </label>
+
+                <select className='w-50'  value={category} onChange={e => setCategory(e.target.value)}>
+                    <option value="">All Categories</option>
+                    <option value="Crimes Against Personal Liberty And Security">Crimes Against Personal Liberty And Security</option>
+                    <option value="Crimes Against Persons">Crimes Against Persons</option>
+                    <option value="Crimes Against Property">Crimes Against Property</option>
+                    <option value="Final Provisions">Final Provisions</option>
+                    <option value="Crimes Against Honor">Crimes Against Honor</option>
+                    <option value="Crimes Committed By Public Officers">Crimes Committed By Public Officers</option>
+                    <option value="Quasi-Offenses">Quasi-Offenses</option>
+                    <option value="Crimes Against National Security & The Law Of The Nations">Crimes Against National Security & The Law Of The Nations</option>
+                    <option value="Crimes Against Public Order">Crimes Against Public Order</option>
+                    <option value="Crimes Against The Civil Status Of Persons">Crimes Against The Civil Status Of Persons</option>
+                    <option value="Crimes Against Popular Representation">Crimes Against Popular Representation</option>
+                    <option value="Crimes Against Public Interest">Crimes Against Public Interest</option>
+                    <option value="Presedential Decree">Presedential Decree</option>
+                    <option value="Crimes Against The Fundamental Laws Of The State">Crimes Against The Fundamental Laws Of The State</option>
+                    <option value="Crimes Against Chastity">Crimes Against Chastity</option>
+                    <option value="Crimes Against Public Morals">Crimes Against Public Morals</option>
+                </select>
+            </div>
+
+            <hr />
+
+            <div className='px-3 d-flex justify-content-end gap-2 '>
+                <button className='btn btn-light  '         onClick={handleButtonClick}> Cancel </button>
+            <input style={{fontSize: '14px'}} className='btn btn-primary px-3 py-1' type="submit" value="Submit" />
+            </div>
+        </form>
+      </div>
+    )}
+
       </div>
 
         </>

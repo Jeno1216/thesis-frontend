@@ -42,6 +42,7 @@ function Home() {
 
   // Create a ref for the startLocation input field
   const startLocationInputRef = useRef(null);
+  
 
   useEffect(() => {
     axios
@@ -232,7 +233,6 @@ function Home() {
               <h4 className=''>
                 <b>
                   Welcome to SafetyPin!
-                  <p>{message}</p>
 
                 </b>
               </h4>
@@ -390,7 +390,6 @@ function Home() {
               <h4 className=''>
                 <b>
                   Welcome to SafetyPin!
-                  {message}
                 </b>
               </h4>
             </div>
@@ -413,6 +412,7 @@ function Home() {
         ) : (
         <div className='d-lg-none d-md-none d-sm-none'>        
         <button className='bi-list btn btn-primary ' style={{ borderRadius: ' 10px', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '14px'}} onClick={toggleCodeBlockVisibility}>
+        &nbsp; Routes 
         </button>
 
         {showCodeBlock && (
@@ -421,7 +421,7 @@ function Home() {
         <div className='p-3'>
         <div className="px-2 d-flex gap-2" >
             
-          <i className='bi-arrow-left' onClick={toggleCodeBlockVisibility}></i>
+          <i className='bi-arrow-left fs-4 fw-bold ' onClick={toggleCodeBlockVisibility}></i>
           
           <div className=' d-flex flex-column w-100'>
 
