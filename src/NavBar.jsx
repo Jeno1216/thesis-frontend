@@ -107,14 +107,10 @@ function NavBar() {
     )}
 
 {isVisible2 && ( 
-    <div className='border position-fixed w-100 d-flex justify-content-center align-items-center' style={{zIndex: '99999'}}>
-        <div className='d-flex bg-light w-100 d-flex justify-content-center text-center align-items-center rounded p-3'>
+    <div className='w-100 d-flex justify-content-center align-items-center' style={{zIndex: '99999'}}>
+        <div className='d-flex bg-light w-100 d-flex justify-content-center text-center align-items-center p-3'>
         <div className='d-flex flex-column gap-3 '>
-
-        <div className=' d-flex  justify-content-center'>
-        <img src="logo.png" alt="" style={{width: '100px'}} />
-        </div>
-
+          
         <div className='' >
         <Link to='/' style={{textDecoration: 'none', color: 'black'}}>Route</Link>
         </div>
