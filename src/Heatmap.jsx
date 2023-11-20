@@ -42,16 +42,19 @@ function HeatMap() {
   
 
     useEffect(() => {
-        const map = L.map('map').setView([10.706512, 122.581742], 12);
-         
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(map);
+      const map = L.map('map').setView([10.706512, 122.581742], 12);
 
-        // Move zoom control to upper right corner
-        map.zoomControl.remove();
-        L.control.zoom({ position: 'topright' }).addTo(map);
-
+      const mapboxToken = 'sk.eyJ1Ijoiam5ibGxkIiwiYSI6ImNsbmg2amx6MzFibDQycnFwdnpiZHd6eGUifQ.zpQQzIAwESP9M_HVwQ02Vw'; // Replace with your Mapbox access token
+       
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+      }).addTo(map);
+    
+      
+      // Move zoom control to upper right corner
+      map.zoomControl.remove();
+      L.control.zoom({ position: 'topright' }).addTo(map);
+  
     
     }, []);
 
@@ -118,7 +121,7 @@ function HeatMap() {
        <p className='p-0 fw-bold '>MAIN FILTER</p>
             <div className=' gap-2 d-flex'>
                <select className='rounded-5 px-3 py-1' value={day} onChange={e => setDay(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
                 >
                    <option value="" disabled selected>Select a Day</option>
                    <option value="">All Day</option>
@@ -134,7 +137,7 @@ function HeatMap() {
 
             <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={month} onChange={e => setMonth(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a Month</option>
                    <option value="">All Months</option>
@@ -155,7 +158,7 @@ function HeatMap() {
            
            <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={year} onChange={e => setYear(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a Year</option>
                    <option value="">All Year</option>
@@ -171,7 +174,7 @@ function HeatMap() {
 
            <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={district} onChange={e => setDistrict(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a District</option>
                    <option value="">All Districts</option>
@@ -188,7 +191,7 @@ function HeatMap() {
 
            <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={category} onChange={e => setCategory(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a Category</option>
                    <option value="">All Categories</option>
@@ -224,7 +227,7 @@ function HeatMap() {
 
 
 {isVisibleMobile && (
-        <div className="d-lg-none rounded d-md-none py-4 px-4 d-sm-none d-flex flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '14px' }}>
+        <div className="d-lg-none  d-md-none py-4 px-4 d-sm-none d-flex flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '14px' }}>
           <div className='text-start'>
             <h4>
               <b>
@@ -265,7 +268,7 @@ function HeatMap() {
        <p className='p-0 fw-bold '>MAIN FILTER</p>
             <div className=' gap-2 d-flex'>
                <select className='rounded-5 px-3 py-1' value={day} onChange={e => setDay(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
                 >
                    <option value="" disabled selected>Select a Day</option>
                    <option value="">All Day</option>
@@ -281,7 +284,7 @@ function HeatMap() {
 
             <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={month} onChange={e => setMonth(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a Month</option>
                    <option value="">All Months</option>
@@ -302,7 +305,7 @@ function HeatMap() {
            
            <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={year} onChange={e => setYear(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a Year</option>
                    <option value="">All Year</option>
@@ -318,7 +321,7 @@ function HeatMap() {
 
            <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={district} onChange={e => setDistrict(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a District</option>
                    <option value="">All Districts</option>
@@ -335,7 +338,7 @@ function HeatMap() {
 
            <div className=' gap-2 d-flex mt-2'>
                <select className='rounded-5 px-3 py-1' value={category} onChange={e => setCategory(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: 'none', border: '1px solid gray'}}
+                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
                 >
                     <option value="" disabled selected>Select a Category</option>
                    <option value="">All Categories</option>
@@ -360,7 +363,9 @@ function HeatMap() {
 
 
            <div className='px-3 d-flex justify-content-end mt-2 gap-2'>
-           <button className='btn btn-danger ' onClick={handleButtonClick}> Cancel </button>
+           <button className="btn btn-outline-primary  d-flex gap-1" onClick={handleButtonClick}>
+   <i className='bi-arrow-left m-0'></i> <p className='m-0' style={{fontSize: '16px'}}>  Back </p>
+  </button>
 
            <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1' type="submit" value="Apply Filters" />
            </div>
