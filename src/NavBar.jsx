@@ -82,7 +82,7 @@ function NavBar() {
     </div>
 
     {isVisible && ( 
-    <div className='border position-fixed w-25 d-flex justify-content-center align-items-center p-2' style={{zIndex: '99999', right: '0'}}>
+    <div className='position-fixed w-25 d-flex justify-content-center align-items-center p-2' style={{zIndex: '99999', right: '0'}}>
         <div className='d-flex bg-light w-100 d-flex justify-content-center text-center align-items-center rounded p-3'>
         <div className='d-flex flex-column gap-3 '>
         <div className='' >
