@@ -7,3 +7,15 @@
 .sign-in:hover{
     color: white !important;
 }
+
+@media screen and (max-width: 380px) {
+    .title{
+        font-size: 45px !important;
+    }
+}
+
+@media screen and (max-width: 763px) {
+    .desc{
+        font-size: 14px !important;
+    }
+}

@@ -56,7 +56,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    const map = L.map('map').setView([10.706512, 122.581742], 12);
+    const map = L.map('map').setView([10.706512, 122.581742], 14);
 
     const mapboxToken = 'sk.eyJ1Ijoiam5ibGxkIiwiYSI6ImNsbmg2amx6MzFibDQycnFwdnpiZHd6eGUifQ.zpQQzIAwESP9M_HVwQ02Vw'; // Replace with your Mapbox access token
      
@@ -213,10 +213,11 @@ function Home() {
   const handleCurrentLocation = () => {
     setCurrentLocation();
     // Set the value of the startLocation input to "My Location"
+    setStartLocation("My Location");
+    // Update the state variable startLocation
     startLocationInputRef.current.value = "My Location";
-    
   };
-
+  
   // Define a function to handle the "Start Mapping" button click
   const handleStartMappingClick = () => {
     setShowStartMapping(false); // Set the state to hide the "Start Mapping" section
@@ -226,9 +227,9 @@ function Home() {
     <>
       <div className='position-relative '>
         {showStartMapping ? ( // Render the "Start Mapping" section conditionally
-          <div className="d-lg-flex d-md-flex d-sm-flex flex-column gap-2 col-lg-3 col-md-5 col-sm-5 col-12 d-none text-start rounded" style={{ backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 9999, fontSize: '14px' }}>
+          <div className="desc d-lg-flex d-md-flex d-sm-flex flex-column gap-2 col-lg-3 col-md-5 col-sm-5 col-12 d-none text-start rounded" style={{ backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 9999, fontSize: '16px' }}>
            
-           <div className='p-4'>
+           <div className='p-3'>
             <div className=''>
               <h4 className=''>
                 <b>
@@ -246,11 +247,11 @@ function Home() {
             </div>
 
             <div className='d-flex gap-2'>
-              <button className='btn btn-primary' style={{ fontSize: '14px' }} onClick={handleStartMappingClick}>
+              <button className='btn btn-primary desc' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
                 Start Mapping
               </button>
 
-              <button className='btn btn-outline-primary' style={{ fontSize: '14px' }} onClick={handleStartMappingClick}>
+              <button className='btn btn-outline-primary desc' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
                 Learn more
               </button>
 
@@ -259,14 +260,15 @@ function Home() {
 
           </div>
         ) : (
-      <div className="d-lg-flex d-md-flex d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ borderRadius: '0 10px 10px 0', backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '14px'}}>
+      <div className=" desc d-lg-flex d-md-flex d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ borderRadius: '10px', backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>
         <div className='p-3'>
 
         <div className="  " >
-          <div className='d-flex justify-content-between '>
-          <p className='p-0 my-2 fw-bold'>SEARCH PLACES</p>
-          <p onClick={handleCurrentLocation} className='p-0 my-2 fw-bold'><i className='bi-send'></i> &nbsp;Find me</p>
+          <div className='d-flex justify-content-between align-items-center '>
+          <p className='desc p-0 my-3 fw-bold' style={{fontSize: '16px'}}>SEARCH PLACES</p>
+          <p onClick={handleCurrentLocation} className='desc p-0 m-0 btn btn-outline-primary p-2' style={{fontSize: '16px'}}><i className='bi-send'></i> &nbsp;Find me</p>
           </div>
+          
           
           <div className='position-relative '>
 
@@ -342,7 +344,7 @@ function Home() {
 
         <div className='d-flex gap-2 justify-content-end align-items-center'>
           <button className="btn btn-primary  d-flex gap-1" onClick={handleSubmit}>
-           <i className='bi-arrow-right-circle text-light m-0'></i> <p className='m-0' style={{fontSize: '14px'}}>  See Directions </p>
+           <i className='desc bi-arrow-right-circle text-light m-0'></i> <p className='m-0' style={{fontSize: '16px'}}>  See Directions </p>
           </button>
           </div>
 
@@ -390,7 +392,7 @@ function Home() {
       
 
 {showStartMapping ? ( 
-          <div className="d-flex flex-column gap-2 d-lg-none d-md-none d-sm-none text-start" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '14px' }}>
+          <div className="desc d-flex flex-column gap-2 d-lg-none d-md-none d-sm-none text-start" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
            <div className='p-3'>
             
             <div className=''>
@@ -409,11 +411,11 @@ function Home() {
             </div>
 
             <div className='d-flex gap-2'>
-              <button className='btn btn-primary' style={{ fontSize: '14px' }} onClick={handleStartMappingClick}>
+              <button className=' desc btn btn-primary' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
                 Start Mapping
               </button>
 
-              <button className='btn btn-outline-primary' style={{ fontSize: '14px' }} onClick={handleStartMappingClick}>
+              <button className=' desc btn btn-outline-primary' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
                 Learn more
               </button>
 
@@ -423,19 +425,19 @@ function Home() {
 
         ) : (
         <div className='d-lg-none d-md-none d-sm-none'>        
-        <button className='bi-list btn btn-primary ' style={{ borderRadius: ' 10px', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '14px'}} onClick={toggleCodeBlockVisibility}>
+        <button className=' desc bi-list btn btn-primary ' style={{ borderRadius: ' 10px', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}} onClick={toggleCodeBlockVisibility}>
         &nbsp; Routes 
         </button>
 
         {showCodeBlock && (
 
-      <div className="d-flex flex-column gap-2 col-md-4 col-sm-5 col-12" style={{ borderRadius: '0 10px 10px 0', backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '14px'}}>
+      <div className="desc d-flex flex-column gap-2 col-md-4 col-sm-5 col-12" style={{ borderRadius: '-0', backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px'}}>
         <div className='p-3'>
 
 <div className="  " >
   <div className='d-flex justify-content-between '>
-  <p className='p-0 my-2 fw-bold'>SEARCH PLACES</p>
-  <p onClick={handleCurrentLocation} className='p-0 my-2 fw-bold'><i className='bi-send'></i> &nbsp;Find me</p>
+          <p className='desc p-0 my-3 fw-bold' style={{fontSize: '16px'}}>SEARCH PLACES</p>
+          <p onClick={handleCurrentLocation} className='desc btn btn-outline-primary p-2' style={{fontSize: '16px'}}><i className='bi-send p-0 m-0'></i> &nbsp;Find me</p>
   </div>
   
   <div className='position-relative '>
@@ -513,11 +515,11 @@ function Home() {
 <div className='d-flex gap-2 justify-content-end align-items-center'>
 
 <button className="btn btn-outline-primary  d-flex gap-1" onClick={toggleCodeBlockVisibility}>
-   <i className='bi-arrow-left m-0'></i> <p className='m-0' style={{fontSize: '14px'}}>  Back </p>
+   <i className='bi-arrow-left m-0 '></i> <p className='m-0 desc' style={{fontSize: '16px'}}>  Back </p>
   </button>
 
   <button className="btn btn-primary  d-flex gap-1" onClick={handleSubmit}>
-   <i className='bi-arrow-right-circle text-light m-0'></i> <p className='m-0' style={{fontSize: '14px'}}>  See Directions </p>
+   <i className='bi-arrow-right-circle text-light m-0'></i> <p className='m-0 desc' style={{fontSize: '16px'}}>  See Directions </p>
   </button>
   </div>
 

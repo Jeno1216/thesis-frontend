@@ -95,7 +95,7 @@ function HeatMap() {
         </div>
 
     {initialContentVisible ? (
-        <div className="d-lg-flex shadow border rounded d-md-flex py-4 px-4 d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '14px'}}>  
+        <div className="desc d-lg-flex shadow border rounded d-md-flex py-3 px-3 d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>  
             <div className=' text-start'>
             <h4 className=''>
                 <b>
@@ -108,17 +108,17 @@ function HeatMap() {
 
                 </p>
                 <div className='d-flex gap-2'>
-                <button className='btn btn-primary' onClick={handleButtonClick2}>Start filtering</button>
-                <button className='btn btn-outline-primary'>Learn more</button>
+                <button className='desc btn btn-primary' style={{fontSize: '16px'}} onClick={handleButtonClick2}>Start filtering</button>
+                <button className='desc btn btn-outline-primary' style={{fontSize: '16px'}}>Learn more</button>
 
                 </div>
             </div>
         </div>
     ) : (
-      <div className="d-lg-flex shadow border rounded d-md-flex py-4 px-3 d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '14px'}}>
+      <div className="desc d-lg-flex shadow border rounded d-md-flex py-4 px-3 d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>
 
        <form onSubmit={handleSubmit} className=' text-start d-flex flex-column'>
-       <p className='p-0 fw-bold '>MAIN FILTER</p>
+       <p className='p-0 ' style={{fontWeight: '900'}}> FILTER DATA </p>
             <div className=' gap-2 d-flex'>
                <select className='rounded-5 px-3 py-1' value={day} onChange={e => setDay(e.target.value)} 
                 style={{width: '100%', outline: 'none', border: '1px solid gray'}}
@@ -215,8 +215,8 @@ function HeatMap() {
            </div>
 
 
-           <div className='px-3 d-flex justify-content-end mt-2'>
-           <input style={{fontSize: '14px'}} className='btn btn-primary px-3 py-1' type="submit" value="Apply Filters" />
+           <div className='d-flex justify-content-end mt-2'>
+           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="Apply Filters" />
            </div>
        </form>
 
@@ -227,7 +227,7 @@ function HeatMap() {
 
 
 {isVisibleMobile && (
-        <div className="d-lg-none  d-md-none py-4 px-4 d-sm-none d-flex flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '14px' }}>
+        <div className="d-lg-none desc d-md-none py-4 px-4 d-sm-none d-flex flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
           <div className='text-start'>
             <h4>
               <b>
@@ -238,8 +238,8 @@ function HeatMap() {
               Please use the dropdowns to select your preferences and visualize credible crime data in heatmaps for Iloilo City. This data is sourced from the local police, ensuring reliability and accuracy. Your selections will help generate visual representations of crime patterns, providing valuable insights into the city's safety and security.
             </p>
             <div className='d-flex gap-2'>
-              <button className='btn btn-primary' onClick={handleStartFiltering}>Start filtering</button>
-              <button className='btn btn-outline-primary'>Learn more</button>
+              <button className='btn btn-primary desc' style={{fontSize: '16px'}} onClick={handleStartFiltering}>Start filtering</button>
+              <button className='btn btn-outline-primary desc' style={{fontSize: '16px'}}>Learn more</button>
             </div>
           </div>
         </div>
@@ -247,14 +247,14 @@ function HeatMap() {
 
 
     <button
-        className="bi-stack btn btn-primary d-lg-none d-md-none d-sm-none d-block "
+        className="bi-stack btn btn-primary d-lg-none d-md-none d-sm-none d-block desc"
         style={{
             borderRadius: '10px',
             position: 'absolute',
             top: '10px',
             left: '10px',
             zIndex: 999,
-            fontSize: '14px',
+            fontSize: '16px',
         }}
         onClick={handleButtonClick} // Add an onClick handler to toggle visibility
     >
@@ -263,7 +263,7 @@ function HeatMap() {
 
     {isVisible && ( // Conditionally render the second form based on isVisible state
 
-      <div className="d-lg-none  d-md-none py-4 px-3 d-sm-none d-flex flex-column gap-2 col-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 999, fontSize: '14px'}}>
+      <div className="d-lg-none desc d-md-none py-4 px-3 d-sm-none d-flex flex-column gap-2 col-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 999, fontSize: '16px'}}>
    <form onSubmit={handleSubmit} className=' text-start d-flex flex-column'>
        <p className='p-0 fw-bold '>MAIN FILTER</p>
             <div className=' gap-2 d-flex'>
@@ -364,10 +364,10 @@ function HeatMap() {
 
            <div className='px-3 d-flex justify-content-end mt-2 gap-2'>
            <button className="btn btn-outline-primary  d-flex gap-1" onClick={handleButtonClick}>
-   <i className='bi-arrow-left m-0'></i> <p className='m-0' style={{fontSize: '16px'}}>  Back </p>
+   <i className='desc bi-arrow-left m-0'></i> <p className='m-0' style={{fontSize: '16px'}}>  Back </p>
   </button>
 
-           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1' type="submit" value="Apply Filters" />
+           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="Apply Filters" />
            </div>
        </form>
       </div>
