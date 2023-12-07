@@ -227,9 +227,9 @@ function Home() {
     <>
       <div className='position-relative '>
         {showStartMapping ? ( // Render the "Start Mapping" section conditionally
-          <div className="desc d-lg-flex d-md-flex d-sm-flex flex-column gap-2 col-lg-3 col-md-5 col-sm-5 col-12 d-none text-start rounded" style={{ backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 9999, fontSize: '16px' }}>
+          <div data-aos="fade-right" data-aos-delay="100" className="desc d-lg-flex d-md-flex d-sm-flex flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12 d-none text-start rounded" style={{ backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 9999, fontSize: '16px' }}>
            
-           <div className='p-3'>
+           <div className='p-3' >
             <div className=''>
               <h4 className=''>
                 <b>
@@ -260,7 +260,7 @@ function Home() {
 
           </div>
         ) : (
-      <div className=" desc d-lg-flex d-md-flex d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ borderRadius: '10px', backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>
+      <div className=" desc d-lg-flex d-md-flex d-sm-flex d-none flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12" style={{ borderRadius: '10px', backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>
         <div className='p-3'>
 
         <div className="  " >
@@ -392,7 +392,7 @@ function Home() {
       
 
 {showStartMapping ? ( 
-          <div className="desc d-flex flex-column gap-2 d-lg-none d-md-none d-sm-none text-start" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
+          <div data-aos="fade-in" data-aos-delay="100" className="desc d-flex flex-column gap-2 d-lg-none d-md-none d-sm-none text-start" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
            <div className='p-3'>
             
             <div className=''>

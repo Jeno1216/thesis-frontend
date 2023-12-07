@@ -7,6 +7,7 @@ import HeatMap from "./Heatmap";
 import axios from 'axios';
 import Login from "./Login";
 import About from "./About";
+import Analytics from "./Analytics";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/heatmap" element={<HeatMap />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
+        <Route path="/analytics" element={<Analytics />} />
 
       </Routes>
     </BrowserRouter>

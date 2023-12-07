@@ -9,15 +9,78 @@ import './style.css';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 import 'leaflet-control-geocoder/dist/Control.Geocoder.js';
+import Select from 'react-select';
 
 function HeatMap() {
-    const [day, setDay] = useState('');
-    const [month, setMonth] = useState('');
-    const [year, setYear] = useState('');
-    const [district, setDistrict] = useState('');
-    const [category, setCategory] = useState('');
+    const [day, setDay] = useState([]);
+    const [month, setMonth] = useState([]);
+    const [year, setYear] = useState([]);
+    const [district, setDistrict] = useState([]);
+    const [category, setCategory] = useState([]);
     const [mapHtml, setMapHtml] = useState(null);
     const [submitted, setSubmitted] = useState(false);
+
+    const dayOptions = [
+      { value: 'Monday', label: 'Monday' },
+      { value: 'Tuesday', label: 'Tuesday' },
+      { value: 'Wednesday', label: 'Wednesday' },
+      { value: 'Thursday', label: 'Thursday' },
+      { value: 'Friday', label: 'Friday' },
+      { value: 'Saturday', label: 'Saturday' },
+      { value: 'Sunday', label: 'Sunday' }
+    ];
+
+    const monthOptions = [
+        { value: 'January', label: 'January' },
+        { value: 'February', label: 'February' },
+        { value: 'March', label: 'March' },
+        { value: 'April', label: 'April' },
+        { value: 'May', label: 'May' },
+        { value: 'June', label: 'June' },
+        { value: 'July', label: 'July' },
+        { value: 'August', label: 'August' },
+        { value: 'September', label: 'September' },
+        { value: 'October', label: 'October' },
+        { value: 'November', label: 'November' },
+        { value: 'December', label: 'December' }
+    ];
+    
+    const yearOptions = [
+        { value: '2018', label: '2018' },
+        { value: '2019', label: '2019' },
+        { value: '2020', label: '2020' },
+        { value: '2021', label: '2021' },
+        { value: '2022', label: '2022' },
+        { value: '2023', label: '2023' }
+    ];
+    
+    const districtOptions = [
+        { value: 'Arevalo', label: 'Arevalo' },
+        { value: 'Mandurriao', label: 'Mandurriao' },
+        { value: 'Jaro', label: 'Jaro' },
+        { value: 'Molo', label: 'Molo' },
+        { value: 'City Proper', label: 'City Proper' },
+        { value: 'Lapaz', label: 'Lapaz' }
+    ];
+    
+    const categoryOptions = [
+        { value: 'Crimes Against Personal Liberty And Security', label: 'Crimes Against Personal Liberty And Security' },
+        { value: 'Crimes Against Persons', label: 'Crimes Against Persons' },
+        { value: 'Crimes Against Property', label: 'Crimes Against Property' },
+        { value: 'Final Provisions', label: 'Final Provisions' },
+        { value: 'Crimes Against Honor', label: 'Crimes Against Honor' },
+        { value: 'Crimes Committed By Public Officers', label: 'Crimes Committed By Public Officers' },
+        { value: 'Quasi-Offenses', label: 'Quasi-Offenses' },
+        { value: 'Crimes Against National Security & The Law Of The Nations', label: 'Crimes Against National Security & The Law Of The Nations' },
+        { value: 'Crimes Against Public Order', label: 'Crimes Against Public Order' },
+        { value: 'Crimes Against The Civil Status Of Persons', label: 'Crimes Against The Civil Status Of Persons' },
+        { value: 'Crimes Against Popular Representation', label: 'Crimes Against Popular Representation' },
+        { value: 'Crimes Against Public Interest', label: 'Crimes Against Public Interest' },
+        { value: 'Presedential Decree', label: 'Presedential Decree' },
+        { value: 'Crimes Against The Fundamental Laws Of The State', label: 'Crimes Against The Fundamental Laws Of The State' },
+        { value: 'Crimes Against Chastity', label: 'Crimes Against Chastity' },
+        { value: 'Crimes Against Public Morals', label: 'Crimes Against Public Morals' }
+    ];
 
     // State to control visibility
     const [initialContentVisible, setInitialContentVisible] = useState(true);
@@ -53,7 +116,6 @@ function HeatMap() {
       
       // Move zoom control to upper right corner
       map.zoomControl.remove();
-      L.control.zoom({ position: 'topright' }).addTo(map);
   
     
     }, []);
@@ -81,9 +143,7 @@ function HeatMap() {
         }
         
     };
-    
-
-
+  
     return (
         <>
       <div className='position-relative'>
@@ -95,7 +155,7 @@ function HeatMap() {
         </div>
 
     {initialContentVisible ? (
-        <div className="desc d-lg-flex shadow border rounded d-md-flex py-3 px-3 d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>  
+        <div className="desc d-lg-flex shadow border rounded d-md-flex py-3 px-3 d-sm-flex d-none flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>  
             <div className=' text-start'>
             <h4 className=''>
                 <b>
@@ -115,108 +175,65 @@ function HeatMap() {
             </div>
         </div>
     ) : (
-      <div className="desc d-lg-flex shadow border rounded d-md-flex py-4 px-3 d-sm-flex d-none flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>
+      <div className="desc d-lg-flex shadow border rounded d-md-flex py-4 px-3 d-sm-flex d-none flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>
 
        <form onSubmit={handleSubmit} className=' text-start d-flex flex-column'>
-       <p className='p-0 ' style={{fontWeight: '900'}}> FILTER DATA </p>
+       <p className='p-0 m-2 text-light-emphasis ' style={{fontWeight: ''}}> FILTER DATA </p>
             <div className=' gap-2 d-flex'>
-               <select className='rounded-5 px-3 py-1' value={day} onChange={e => setDay(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
-                >
-                   <option value="" disabled selected>Select a Day</option>
-                   <option value="">All Day</option>
-                   <option value="Monday">Monday</option>
-                   <option value="Tuesday">Tuesday</option>
-                   <option value="Wednesday">Wednesday</option>
-                   <option value="Thursday">Thursday</option>
-                   <option value="Friday">Friday</option>
-                   <option value="Saturday">Saturday</option>
-                   <option value="Sunday">Sunday</option>
-               </select>
+            <Select
+              placeholder="All Days (Default)..."
+              className='w-100'
+              isMulti
+              options={dayOptions}
+              onChange={selectedOptions => setDay(selectedOptions.map(option => option.value))}
+            />
            </div>
 
             <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={month} onChange={e => setMonth(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a Month</option>
-                   <option value="">All Months</option>
-                   <option value="January">January</option>
-                   <option value="February">February</option>
-                   <option value="March">March</option>
-                   <option value="April">April</option>
-                   <option value="May">May</option>
-                   <option value="June">June</option>
-                   <option value="July">July</option>
-                   <option value="August">August</option>
-                   <option value="September">September</option>
-                   <option value="October">October</option>
-                   <option value="November">November</option>
-                   <option value="December">December</option>
-               </select>
+            <Select
+              placeholder="All Months (Default)..."
+              className='w-100'
+              isMulti
+              options={monthOptions}
+              onChange={selectedOptions => setMonth(selectedOptions.map(option => option.value))}
+            />
            </div>
            
            <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={year} onChange={e => setYear(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a Year</option>
-                   <option value="">All Year</option>
-                   <option value="2018">2018</option>
-                   <option value="2019">2019</option>
-                   <option value="2020">2020</option>
-                   <option value="2021">2021</option>
-                   <option value="2022">2022</option>
-                   <option value="2023">2023</option>
-               </select>
+            <Select
+              placeholder="All Years (Default)..."
+              className='w-100'
+              isMulti
+              options={yearOptions}
+              onChange={selectedOptions => setYear(selectedOptions.map(option => option.value))}
+            />
            </div>
 
 
            <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={district} onChange={e => setDistrict(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a District</option>
-                   <option value="">All Districts</option>
-                   <option value="Arevalo">Arevalo</option>
-                   <option value="Mandurriao">Mandurriao</option>
-                   <option value="Jaro">Jaro</option>
-                   <option value="Molo">Molo</option>
-                   <option value="City Proper">City Proper</option>
-                   <option value="Lapaz">Lapaz</option>
-                   {/* Add more options as needed */}
-               </select>
+           <Select
+           placeholder="All Districts (Default)..."
+            className='w-100'
+            isMulti
+            options={districtOptions}
+            onChange={selectedOptions => setDistrict(selectedOptions.map(option => option.value))}
+          />
            </div>
 
 
            <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={category} onChange={e => setCategory(e.target.value)} 
-                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a Category</option>
-                   <option value="">All Categories</option>
-                   <option value="Crimes Against Personal Liberty And Security">Crimes Against Personal Liberty And Security</option>
-                   <option value="Crimes Against Persons">Crimes Against Persons</option>
-                   <option value="Crimes Against Property">Crimes Against Property</option>
-                   <option value="Final Provisions">Final Provisions</option>
-                   <option value="Crimes Against Honor">Crimes Against Honor</option>
-                   <option value="Crimes Committed By Public Officers">Crimes Committed By Public Officers</option>
-                   <option value="Quasi-Offenses">Quasi-Offenses</option>
-                   <option value="Crimes Against National Security & The Law Of The Nations">Crimes Against National Security & The Law Of The Nations</option>
-                   <option value="Crimes Against Public Order">Crimes Against Public Order</option>
-                   <option value="Crimes Against The Civil Status Of Persons">Crimes Against The Civil Status Of Persons</option>
-                   <option value="Crimes Against Popular Representation">Crimes Against Popular Representation</option>
-                   <option value="Crimes Against Public Interest">Crimes Against Public Interest</option>
-                   <option value="Presedential Decree">Presedential Decree</option>
-                   <option value="Crimes Against The Fundamental Laws Of The State">Crimes Against The Fundamental Laws Of The State</option>
-                   <option value="Crimes Against Chastity">Crimes Against Chastity</option>
-                   <option value="Crimes Against Public Morals">Crimes Against Public Morals</option>
-               </select>
+           <Select
+           placeholder="All Categories (Default)..."
+            className='w-100'
+            isMulti
+            options={categoryOptions}
+            onChange={selectedOptions => setCategory(selectedOptions.map(option => option.value))}
+          />
            </div>
 
 
-           <div className='d-flex justify-content-end mt-2'>
-           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="Apply Filters" />
+           <div className='d-flex justify-content-end mt-4'>
+           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="➡️ Apply Filters" />
            </div>
        </form>
 
@@ -227,7 +244,7 @@ function HeatMap() {
 
 
 {isVisibleMobile && (
-        <div className="d-lg-none desc d-md-none py-4 px-4 d-sm-none d-flex flex-column gap-2 col-lg-3 col-md-4 col-sm-5 col-12" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
+        <div className="d-lg-none desc d-md-none py-4 px-4 d-sm-none d-flex flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
           <div className='text-start'>
             <h4>
               <b>
@@ -267,98 +284,55 @@ function HeatMap() {
    <form onSubmit={handleSubmit} className=' text-start d-flex flex-column'>
        <p className='p-0 fw-bold '>MAIN FILTER</p>
             <div className=' gap-2 d-flex'>
-               <select className='rounded-5 px-3 py-1' value={day} onChange={e => setDay(e.target.value)} 
-                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
-                >
-                   <option value="" disabled selected>Select a Day</option>
-                   <option value="">All Day</option>
-                   <option value="Monday">Monday</option>
-                   <option value="Tuesday">Tuesday</option>
-                   <option value="Wednesday">Wednesday</option>
-                   <option value="Thursday">Thursday</option>
-                   <option value="Friday">Friday</option>
-                   <option value="Saturday">Saturday</option>
-                   <option value="Sunday">Sunday</option>
-               </select>
+            <Select
+              placeholder="All Days (Default)..."
+              className='w-100'
+              isMulti
+              options={dayOptions}
+              onChange={selectedOptions => setDay(selectedOptions.map(option => option.value))}
+            />
            </div>
 
             <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={month} onChange={e => setMonth(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a Month</option>
-                   <option value="">All Months</option>
-                   <option value="January">January</option>
-                   <option value="February">February</option>
-                   <option value="March">March</option>
-                   <option value="April">April</option>
-                   <option value="May">May</option>
-                   <option value="June">June</option>
-                   <option value="July">July</option>
-                   <option value="August">August</option>
-                   <option value="September">September</option>
-                   <option value="October">October</option>
-                   <option value="November">November</option>
-                   <option value="December">December</option>
-               </select>
+            <Select
+            placeholder="All Months (Default)..."
+                className='w-100'
+                isMulti
+                options={monthOptions}
+                onChange={selectedOptions => setMonth(selectedOptions.map(option => option.value))}
+            />
            </div>
            
            <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={year} onChange={e => setYear(e.target.value)} 
-                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a Year</option>
-                   <option value="">All Year</option>
-                   <option value="2018">2018</option>
-                   <option value="2019">2019</option>
-                   <option value="2020">2020</option>
-                   <option value="2021">2021</option>
-                   <option value="2022">2022</option>
-                   <option value="2023">2023</option>
-               </select>
+           <Select
+           placeholder="All Years (Default)..."
+                className='w-100'
+                isMulti
+                options={yearOptions}
+                onChange={selectedOptions => setYear(selectedOptions.map(option => option.value))}
+            />
            </div>
 
 
            <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={district} onChange={e => setDistrict(e.target.value)} 
-                style={{width: '100%', outline: 'none', border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a District</option>
-                   <option value="">All Districts</option>
-                   <option value="Arevalo">Arevalo</option>
-                   <option value="Mandurriao">Mandurriao</option>
-                   <option value="Jaro">Jaro</option>
-                   <option value="Molo">Molo</option>
-                   <option value="City Proper">City Proper</option>
-                   <option value="Lapaz">Lapaz</option>
-                   {/* Add more options as needed */}
-               </select>
+           <Select
+           placeholder="All Districts (Default)..."
+              className='w-100'
+              isMulti
+              options={districtOptions}
+              onChange={selectedOptions => setDistrict(selectedOptions.map(option => option.value))}
+          />
            </div>
 
 
            <div className=' gap-2 d-flex mt-2'>
-               <select className='rounded-5 px-3 py-1' value={category} onChange={e => setCategory(e.target.value)} 
-                style={{width: '100%', outline: 'none',  border: '1px solid gray'}}
-                >
-                    <option value="" disabled selected>Select a Category</option>
-                   <option value="">All Categories</option>
-                   <option value="Crimes Against Personal Liberty And Security">Crimes Against Personal Liberty And Security</option>
-                   <option value="Crimes Against Persons">Crimes Against Persons</option>
-                   <option value="Crimes Against Property">Crimes Against Property</option>
-                   <option value="Final Provisions">Final Provisions</option>
-                   <option value="Crimes Against Honor">Crimes Against Honor</option>
-                   <option value="Crimes Committed By Public Officers">Crimes Committed By Public Officers</option>
-                   <option value="Quasi-Offenses">Quasi-Offenses</option>
-                   <option value="Crimes Against National Security & The Law Of The Nations">Crimes Against National Security & The Law Of The Nations</option>
-                   <option value="Crimes Against Public Order">Crimes Against Public Order</option>
-                   <option value="Crimes Against The Civil Status Of Persons">Crimes Against The Civil Status Of Persons</option>
-                   <option value="Crimes Against Popular Representation">Crimes Against Popular Representation</option>
-                   <option value="Crimes Against Public Interest">Crimes Against Public Interest</option>
-                   <option value="Presedential Decree">Presedential Decree</option>
-                   <option value="Crimes Against The Fundamental Laws Of The State">Crimes Against The Fundamental Laws Of The State</option>
-                   <option value="Crimes Against Chastity">Crimes Against Chastity</option>
-                   <option value="Crimes Against Public Morals">Crimes Against Public Morals</option>
-               </select>
+           <Select
+           placeholder="All Categories (Default)..."
+              className='w-100'
+              isMulti
+              options={categoryOptions}
+              onChange={selectedOptions => setCategory(selectedOptions.map(option => option.value))}
+          />
            </div>
 
 
@@ -367,7 +341,7 @@ function HeatMap() {
    <i className='desc bi-arrow-left m-0'></i> <p className='m-0' style={{fontSize: '16px'}}>  Back </p>
   </button>
 
-           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="Apply Filters" />
+           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="➡️ Apply Filters" />
            </div>
        </form>
       </div>
