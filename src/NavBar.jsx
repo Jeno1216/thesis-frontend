@@ -28,7 +28,7 @@ function NavBar() {
 
   return (
     <>
-    <div className='w-100 d-flex shadow justify-content-between align-items-center px-3 px-lg-0' style={{height: '80px', backgroundColor: 'white', zIndex: '99999'}}>
+    <div className='w-100 d-flex shadow justify-content-between align-items-center px-1 px-lg-3' style={{height: '80px', backgroundColor: 'white', zIndex: '99999'}}>
 
         <div className=' d-flex p-lg-3'>
         <img src="logo.png" alt="" style={{width: '150px'}} data-aos="fade-right" />
