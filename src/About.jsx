@@ -7,7 +7,7 @@ function About() {
             <div className='col-12  row d-flex justify-content-center align-items-center'>
                 
                 <div className=' col-lg-6 col-md-6 p-lg-3 p-md-3 p-0   order-lg-1 order-2'>
-                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '900', color: '#001BFF', lineHeight: '1'}}> SAFETYPIN </p>
+                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '900', color: 'black', lineHeight: '1'}}> Safety<span style={{color:'#001BFF'}}>Pin</span> </p>
                     <p style={{fontSize: '16px'}} className='desc'>A Web Application for Recommending Safe Routes and Heatmap Visualization for Enhancing Citizen Safety Against Crimes</p>
                     <div className='d-flex  gap-2 flex-lg-row flex-md-row flex-sm-row flex-column'>
                         <div>
