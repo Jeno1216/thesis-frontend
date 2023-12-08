@@ -40,6 +40,9 @@ function Home() {
   const [startSuggestions, setStartSuggestions] = useState([]);
   const [endSuggestions, setEndSuggestions] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
+
   // Create a ref for the startLocation input field
   const startLocationInputRef = useRef(null);
   
@@ -109,6 +112,8 @@ function Home() {
 
   const submitLocations = async () => {
     if (startMarker && endMarker) {
+    setLoading(true); // Set loading to true when submitting
+
     const startLatLng = startMarker.getLatLng();
     const endLatLng = endMarker.getLatLng();
 
@@ -145,6 +150,8 @@ function Home() {
       setSubmitted(true);
     } catch (error) {
       console.error('Error submitting locations:', error);
+    } finally{
+      setLoading(false); // Set loading to false regardless of success or failure
     }
   }
 };
@@ -381,16 +388,6 @@ function Home() {
       </div>
       )}
 
-
-
-
-
-
-
-
-
-      
-
 {showStartMapping ? ( 
           <div data-aos="fade-in" data-aos-delay="100" className="desc d-flex flex-column gap-2 d-lg-none d-md-none d-sm-none text-start" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
            <div className='p-3'>
@@ -574,8 +571,17 @@ function Home() {
 
 
 
-
-
+{/** LOADING SCHEME AFTER PRESSING SEE DIRECTIONS */}
+{loading && (
+  <div className="loading-overlay">
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+    <div>
+      <p className='mt-2'> Generating routes...</p>
+    </div>
+  </div>
+)}
 
 
 

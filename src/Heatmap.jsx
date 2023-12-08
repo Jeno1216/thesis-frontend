@@ -12,6 +12,9 @@ import 'leaflet-control-geocoder/dist/Control.Geocoder.js';
 import Select from 'react-select';
 
 function HeatMap() {
+
+    const [loading, setLoading] = useState(false);
+
     const [day, setDay] = useState([]);
     const [month, setMonth] = useState([]);
     const [year, setYear] = useState([]);
@@ -122,6 +125,8 @@ function HeatMap() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        setLoading(true); // Set loading to true when submitting
     
         const data = {
             day: day,
@@ -140,6 +145,9 @@ function HeatMap() {
             setSubmitted(true);
         } catch (error) {
             console.error('Error:', error);
+        } finally{
+          setLoading(false); // Set loading to true when submitting
+
         }
         
     };
@@ -348,6 +356,19 @@ function HeatMap() {
     )}
 
       </div>
+
+
+{/** LOADING SCHEME AFTER PRESSING APPLY FILTERS */}
+{loading && (
+  <div className="loading-overlay">
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+    <div>
+      <p className='mt-2'> Generating heatmap...</p>
+    </div>
+  </div>
+)}
 
         </>
         
