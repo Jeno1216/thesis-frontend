@@ -28,13 +28,13 @@ function NavBar() {
 
   return (
     <>
-    <div className='w-100 d-flex shadow justify-content-between align-items-center px-1 px-lg-3' style={{height: '80px', backgroundColor: 'white', zIndex: '99999'}}>
+    <div className='w-100 d-flex shadow justify-content-between align-items-center px-1 ' style={{height: '80px', backgroundColor: 'white', zIndex: '99999'}}>
 
-        <div className=' d-flex p-lg-3'>
+        <div className=' d-flex '>
         <img src="logo.png" alt="" style={{width: '150px'}} data-aos="fade-right" />
         </div>
 
-        <div className='d-lg-flex d-none h-100 justify-content-center align-items-center gap-4 p-3' style={{fontSize: '16px'}}>
+        <div className='d-lg-flex d-none h-100 justify-content-center align-items-center gap-4' style={{fontSize: '16px'}}>
 
         <div className='' data-aos="fade-down" data-aos-delay="100" >
         <Link to='/' style={{textDecoration: 'none', color: 'black'}}>Route</Link>
