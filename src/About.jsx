@@ -7,14 +7,14 @@ function About() {
             <div className='col-12  row d-flex justify-content-center align-items-center'>
                 
                 <div className=' col-lg-6 col-md-6 p-lg-3 p-md-3 p-0   order-lg-1 order-2'>
-                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '900', color: 'black', lineHeight: '1'}}> Safety<span style={{color:'#001BFF'}}>Pin</span> </p>
-                    <p style={{fontSize: '16px'}} className='desc'>A Web Application for Recommending Safe Routes and Heatmap Visualization for Enhancing Citizen Safety Against Crimes</p>
+                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '600', color: 'black', lineHeight: '1'}}> Safety<span style={{color:'#001BFF'}}>Pin</span> </p>
+                    <p style={{fontWeight: '300', fontSize: '14px'}} className='desc'>A Web Application for Recommending Safe Routes and Heatmap Visualization for Enhancing Citizen Safety Against Crimes</p>
                     <div className='d-flex  gap-2 flex-lg-row flex-md-row flex-sm-row flex-column'>
                         <div>
-                            <p className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>Dijkstra's Algorithm</p>
+                            <p style={{fontWeight: '300', fontSize: '14px'}} className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>Dijkstra's Algorithm</p>
                         </div>
                         <div>
-                            <p className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>KDE Algorithm</p>
+                            <p style={{fontWeight: '300', fontSize: '14px'}} className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>KDE Algorithm</p>
                         </div>
                     </div>
 
@@ -31,8 +31,8 @@ function About() {
             <div className='col-12  row d-flex justify-content-center align-items-center'>
                 
                 <div className=' col-12 p-lg-3 p-md-3 p-0   order-lg-1 order-2'>
-                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '900', color: '#001BFF', lineHeight: '1'}}> ABSTRACT </p>
-                    <p style={{fontSize: '16px'}} className='desc'>With the <b>increasing incidence of criminal activities</b> , it has become imperative to
+                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '600', color: 'black', lineHeight: '1'}}> Abstract </p>
+                    <p style={{fontWeight: '300', fontSize: '14px'}} className='desc'>With the <b>increasing incidence of criminal activities</b> , it has become imperative to
                         prioritize the citizen’s safety. Despite safety being a primary concern, individuals often
                         have <b>limited access to information regarding the safety levels</b> of areas within a city.
                         Current navigation systems focus on identifying the shortest routes, which may not
@@ -60,11 +60,11 @@ function About() {
             <div className='col-12  row d-flex justify-content-center align-items-center'>
                 
                 <div className=' col-lg-12 col-md-12 p-lg-3 p-md-3 p-0 '>
-                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '900', color: '#001BFF', lineHeight: '1'}}> Authors </p>
-                    <p style={{fontSize: '16px'}} className='desc'>SafetyPin is developed by B.S. in Computer Science students at West Visayas State University for their Undergraduate Thesis.  </p>
+                    <p className='p-0 title' style={{fontSize: '56px', fontWeight: '600', color: 'black', lineHeight: '1'}}> Authors </p>
+                    <p style={{fontWeight: '300', fontSize: '14px'}} className='desc'>SafetyPin is developed by B.S. in Computer Science students at West Visayas State University for their Undergraduate Thesis.  </p>
                     <div className='d-flex  gap-2 flex-lg-row flex-md-row flex-sm-row flex-column'>
                         <div>
-                            <p className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>People behind SafetyPin</p>
+                            <p style={{fontWeight: '300', fontSize: '14px'}} className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>People behind SafetyPin</p>
                         </div>
                     </div>
                 </div>
@@ -72,24 +72,24 @@ function About() {
                 <div className='col-lg-12 col-md-12 p-lg-3 p-md-3 row p-0  d-flex justify-content-center '>
 
                     <div className='col-lg-3 col-md-3 col-6 p-3 '>
-                        <img src="bellido.png" className='rounded-3' style={{objectFit: 'cover', width: '100%'}} alt="" />
-                        <p className='py-2 text-center desc' style={{fontSize: '16px', color: '#001BFF', fontWeight: 'bold'}}> Jeno D. Bellido</p>
+                        <img src="jn.png" className='rounded-3 border border-primary' style={{objectFit: 'cover', width: '100%'}} alt="" />
+                        <p className='py-2 text-center desc' style={{ color: 'black', fontWeight: '500', fontSize: '14px'}}> Jeno D. Bellido</p>
                     </div>
 
                     <div className='col-lg-3 col-md-3 col-6 p-3 '>
-                        <img src="destua.jpg" className='rounded-3' style={{objectFit: 'cover', width: '100%'}} alt="" />
-                        <p className='py-2 text-center desc' style={{fontSize: '16px', color: '#001BFF', fontWeight: 'bold'}}> Rey Anne Destua</p>
+                        <img src="rey.png" className='rounded-3 border border-primary' style={{objectFit: 'cover', width: '100%'}} alt="" />
+                        <p className='py-2 text-center desc' style={{ color: 'black', fontWeight: '500', fontSize: '14px'}}> Rey Anne Destua</p>
                     </div>
 
                     <div className='col-lg-3 col-md-3 col-6 p-3 '>
-                        <img src="lavilla.jpg" className='rounded-3' style={{objectFit: 'cover', width: '100%'}} alt="" />
-                        <p className='py-2 text-center desc' style={{fontSize: '16px', color: '#001BFF', fontWeight: 'bold'}}> Ariane Marie Lavilla</p>
+                        <img src="ariane.png" className='rounded-3 border border-primary' style={{objectFit: 'cover', width: '100%'}} alt="" />
+                        <p className='py-2 text-center desc' style={{ color: 'black', fontWeight: '500', fontSize: '14px'}}> Ariane Marie Lavilla</p>
                     </div>
 
 
-                    <div className='col-lg-3 col-md-3 col-6 p-3 '>
-                        <img src="bellido.png" className='rounded-3' style={{objectFit: 'cover', width: '100%'}} alt="" />
-                        <p className='py-2 text-center desc' style={{fontSize: '16px', color: '#001BFF', fontWeight: 'bold'}}> John Cairo Minerva</p>
+                    <div className='col-lg-3 col-md-3 col-6 p-3'>
+                        <img src="cai.png" className='rounded-3 border border-primary' style={{objectFit: 'cover', width: '100%'}} alt="" />
+                        <p className='py-2 text-center desc' style={{color: 'black', fontWeight: '500', fontSize: '14px'}}> John Cairo Minerva</p>
                     </div>
 
                 </div>
@@ -104,11 +104,11 @@ function About() {
 
                     <div className='d-flex  gap-2 flex-lg-row flex-md-row flex-sm-row flex-column'>
                         <div>
-                            <p className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>Acknowledgement</p>
+                            <p style={{fontWeight: '300', fontSize: '14px'}} className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'>Acknowledgement</p>
                         </div>
                     </div>
 
-                    <p style={{fontSize: '16px'}} className='desc'> 
+                    <p style={{fontWeight: '300', fontSize: '14px'}} className='desc'> 
                     <br />
                         <b>Dr. Frank I. Eijorde</b> - Thesis Adviser
                         <br />
@@ -129,11 +129,11 @@ function About() {
                 <div className=' col-12 p-lg-3 p-md-3 p-0   order-lg-1 order-2'>
                     <div className='d-flex  gap-2 flex-lg-row flex-md-row flex-sm-row flex-column'>
                         <div>
-                            <p className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'> Authorship Acknowledgment </p>
+                            <p style={{fontWeight: '300', fontSize: '14px'}} className='px-3 py-2 m-0 btn btn-outline-primary rounded-5 desc'> Authorship Acknowledgment </p>
                         </div>
                     </div>
 
-                    <p style={{fontSize: '16px'}} className='desc'> 
+                    <p style={{fontWeight: '300', fontSize: '14px'}} className='desc'> 
                     <br />
                     This segment is excerpted from an <b>undergraduate research paper</b>  authored by 
                     <b> Bellido, Destua, Lavilla, and Minerva</b>  at <b>West Visayas State University - College of Information and Communications Technology. </b>  

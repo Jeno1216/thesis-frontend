@@ -11,6 +11,7 @@ import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 import 'leaflet-control-geocoder/dist/Control.Geocoder.js';
 
 function Home() {
+  
   const [showStartMapping, setShowStartMapping] = useState(true); // Add this state variable
   const [showCodeBlock, setShowCodeBlock] = useState(false); // Step 1: Create a state variable for visibility
 
@@ -238,27 +239,24 @@ function Home() {
            
            <div className='p-3' >
             <div className=''>
-              <h4 className=''>
-                <b>
-                  Welcome to SafetyPin!
-
-                </b>
+              <h4 className='' >
+                  Safe Route Recommendation
               </h4>
             </div>
 
             <div>
-              <p>
+              <p style={{fontWeight: '300', fontSize: '14px'}}>
                 SafetyPin is a route finding application that offers users credible safety route recommendations based on police data,
                 enhancing users' security and guiding them away from crime-prone areas.
               </p>
             </div>
 
             <div className='d-flex gap-2'>
-              <button className='btn btn-primary desc' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
+              <button className='btn btn-primary desc' style={{fontWeight: '300', fontSize: '14px'}} onClick={handleStartMappingClick}>
                 Start Mapping
               </button>
 
-              <button className='btn btn-outline-primary desc' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
+              <button className='btn btn-outline-primary desc' style={{fontWeight: '300', fontSize: '14px' }} onClick={handleStartMappingClick}>
                 Learn more
               </button>
 
@@ -272,8 +270,8 @@ function Home() {
 
         <div className="  " >
           <div className='d-flex justify-content-between align-items-center '>
-          <p className='desc p-0 my-3 fw-bold' style={{fontSize: '16px'}}>SEARCH PLACES</p>
-          <p onClick={handleCurrentLocation} className='desc p-0 m-0 btn btn-outline-primary p-2' style={{fontSize: '16px'}}><i className='bi-send'></i> &nbsp;Find me</p>
+          <p className='desc p-0 my-3' style={{fontWeight: '500', fontSize: '14px'}}>SEARCH PLACES</p>
+          <p onClick={handleCurrentLocation} className='desc p-0 m-0 btn btn-outline-primary p-2' style={{fontWeight: '300', fontSize: '14px'}}><i className='bi-send'></i> &nbsp;Find me</p>
           </div>
           
           
@@ -292,7 +290,7 @@ function Home() {
               setStartLocation(e.target.value);
               searchLocations('startLocation', e.target.value);
             }}
-            style={{width: '100%', outline: 'none', border: '1px solid gray'}}
+            style={{width: '100%', outline: 'none', border: '1px solid gray', fontWeight: '300', fontSize: '14px'}}
             className=' rounded-5 px-3 py-1'
             ref={startLocationInputRef}
           />
@@ -328,7 +326,7 @@ function Home() {
               setEndLocation(e.target.value);
               searchLocations('endLocation', e.target.value); 
             }}
-            style={{width: '100%', outline: 'none', border: '1px solid gray'}}
+            style={{width: '100%', outline: 'none', border: '1px solid gray', fontWeight: '300', fontSize: '14px'}}
             className=' rounded-5 px-3 py-1'
   
           />
@@ -351,7 +349,7 @@ function Home() {
 
         <div className='d-flex gap-2 justify-content-end align-items-center'>
           <button className="btn btn-primary  d-flex gap-1" onClick={handleSubmit}>
-           <i className='desc bi-arrow-right-circle text-light m-0'></i> <p className='m-0' style={{fontSize: '16px'}}>  See Directions </p>
+           <i className='desc bi-arrow-right-circle text-light m-0'></i> <p className='m-0' style={{fontWeight: '300', fontSize: '14px'}}>  See Directions </p>
           </button>
           </div>
 
@@ -361,22 +359,22 @@ function Home() {
           <>
             <div className='d-flex flex-column  gap-2 p-3 rounded-bottom ' style={{marginTop: '-40px'}}>
               <div>
-              <p className='p-0 my-2 fw-bold'>ROUTES</p>
+              <p className='p-0 my-2 ' style={{fontWeight: '500', fontSize: '14px'}}>ROUTES</p>
               </div>
             <div className="p-2 rounded  text-start  bg-light " onClick={handleClickShortest} style={{cursor: 'pointer'}}>
-              <p className='m-0 text-start'>
+              <p className='m-0 text-start' style={{fontWeight: '300', fontSize: '14px'}}>
                 Route type: <b> Safest </b> 
               </p>
-              <p className='m-0 p-0'>Risk Index: <i className='btn btn-primary px-3 py-1'> {safestPathWeight} </i> </p>
-              <a href={safestPathGMaps} target='_blank' className='text-decoration-none'> <i className='bi-google'></i> Open Google Maps</a>
+              <p className='m-0 p-0' style={{fontWeight: '300', fontSize: '14px'}}>Risk Index: <i className='btn btn-primary px-3 py-1' style={{fontWeight: '300', fontSize: '14px'}}> {safestPathWeight} </i> </p>
+              <a href={safestPathGMaps} target='_blank' className='text-decoration-none' style={{fontWeight: '300', fontSize: '14px'}}> <i className='bi-google'></i> Open Google Maps</a>
             </div>
 
               <div className="p-2 rounded  text-start  bg-light" onClick={handleClickSafest} style={{cursor: 'pointer'}}>
-              <p className='m-0 text-start'>
+              <p className='m-0 text-start' style={{fontWeight: '300', fontSize: '14px'}}>
                 Route type: <b> Shortest </b> 
                 </p>
-                <p className='m-0 p-0'>Risk Index: <i className='btn btn-primary px-3 py-1'> {shortestPathWeight} </i> </p>
-                <a href={shortestPathGMaps} target='_blank' className='text-decoration-none'>  <i className='bi-google'></i> Open Google Maps </a>
+                <p className='m-0 p-0' style={{fontWeight: '300', fontSize: '14px'}}>Risk Index: <i className='btn btn-primary px-3 py-1' style={{fontWeight: '300', fontSize: '14px'}}> {shortestPathWeight} </i> </p>
+                <a href={shortestPathGMaps} target='_blank' className='text-decoration-none' style={{fontWeight: '300', fontSize: '14px'}}>  <i className='bi-google'></i> Open Google Maps </a>
  
               </div>
 
@@ -394,25 +392,23 @@ function Home() {
             
             <div className=''>
               <h4 className=''>
-                <b>
-                  Welcome to SafetyPin!
-                </b>
+                  Safe Route Recommendation
               </h4>
             </div>
 
             <div>
-              <p>
+              <p style={{fontWeight: '300', fontSize: '14px'}}>
                 SafetyPin is a route finding application that offers users credible safety route recommendations based on police data,
                 enhancing users' security and guiding them away from crime-prone areas.
               </p>
             </div>
 
             <div className='d-flex gap-2'>
-              <button className=' desc btn btn-primary' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
+              <button className=' desc btn btn-primary' style={{ fontWeight: '300', fontSize: '14px' }} onClick={handleStartMappingClick}>
                 Start Mapping
               </button>
 
-              <button className=' desc btn btn-outline-primary' style={{ fontSize: '16px' }} onClick={handleStartMappingClick}>
+              <button className=' desc btn btn-outline-primary' style={{ fontWeight: '300', fontSize: '14px' }} onClick={handleStartMappingClick}>
                 Learn more
               </button>
 
@@ -433,8 +429,8 @@ function Home() {
 
 <div className="  " >
   <div className='d-flex justify-content-between '>
-          <p className='desc p-0 my-3 fw-bold' style={{fontSize: '16px'}}>SEARCH PLACES</p>
-          <p onClick={handleCurrentLocation} className='desc btn btn-outline-primary p-2' style={{fontSize: '16px'}}><i className='bi-send p-0 m-0'></i> &nbsp;Find me</p>
+          <p className='desc p-0 my-3' style={{fontWeight: '500', fontSize: '14px'}}>SEARCH PLACES</p>
+          <p onClick={handleCurrentLocation} className='desc btn btn-outline-primary p-2' style={{fontWeight: '300', fontSize: '14px'}}><i className='bi-send p-0 m-0'></i> &nbsp;Find me</p>
   </div>
   
   <div className='position-relative '>
@@ -452,7 +448,7 @@ function Home() {
       setStartLocation(e.target.value);
       searchLocations('startLocation', e.target.value);
     }}
-    style={{width: '100%', outline: 'none', border: '1px solid gray'}}
+    style={{width: '100%', outline: 'none', border: '1px solid gray', fontWeight: '300', fontSize: '14px'}}
     className=' rounded-5 px-3 py-1'
     ref={startLocationInputRef}
   />
@@ -488,7 +484,7 @@ function Home() {
       setEndLocation(e.target.value);
       searchLocations('endLocation', e.target.value); 
     }}
-    style={{width: '100%', outline: 'none', border: '1px solid gray'}}
+    style={{width: '100%', outline: 'none', border: '1px solid gray', fontWeight: '300', fontSize: '14px'}}
     className=' rounded-5 px-3 py-1'
 
   />
@@ -512,11 +508,11 @@ function Home() {
 <div className='d-flex gap-2 justify-content-end align-items-center'>
 
 <button className="btn btn-outline-primary  d-flex gap-1" onClick={toggleCodeBlockVisibility}>
-   <i className='bi-arrow-left m-0 '></i> <p className='m-0 desc' style={{fontSize: '16px'}}>  Back </p>
+   <i className='bi-arrow-left m-0 '></i> <p className='m-0 desc' style={{fontWeight: '300', fontSize: '14px'}}>  Back </p>
   </button>
 
   <button className="btn btn-primary  d-flex gap-1" onClick={handleSubmit}>
-   <i className='bi-arrow-right-circle text-light m-0'></i> <p className='m-0 desc' style={{fontSize: '16px'}}>  See Directions </p>
+   <i className='bi-arrow-right-circle text-light m-0'></i> <p className='m-0 desc' style={{fontWeight: '300', fontSize: '14px'}}>  See Directions </p>
   </button>
   </div>
 
@@ -534,22 +530,22 @@ function Home() {
             <div className='d-flex flex-column d-lg-none d-md-none d-sm-none gap-2 p-3 rounded-bottom position-absolute w-100' style={{ zIndex: '999', backgroundColor: 'white' , bottom: '0', }}>
 
             <div>
-              <p className='p-0 my-2 fw-bold'>ROUTES</p>
+              <p className='p-0 my-2 ' style={{fontWeight: '500', fontSize: '14px'}}>ROUTES</p>
               </div>
             <div className="p-2 rounded  text-start  bg-light " onClick={handleClickShortest} style={{cursor: 'pointer'}}>
-              <p className='m-0 text-start'>
+              <p className='m-0 text-start' style={{fontWeight: '300', fontSize: '14px'}}>
                 Route type: <b> Safest </b> 
               </p>
-              <p className='m-0 p-0'>Risk Index: <i className='btn btn-primary px-3 py-1'> {safestPathWeight} </i> </p>
-              <a href={safestPathGMaps} target='_blank' className='text-decoration-none'> <i className='bi-google'></i> Open Google Maps</a>
+              <p className='m-0 p-0' style={{fontWeight: '300', fontSize: '14px'}}>Risk Index: <i className='btn btn-primary px-3 py-1' style={{fontWeight: '300', fontSize: '14px'}}> {safestPathWeight} </i> </p>
+              <a href={safestPathGMaps} target='_blank' className='text-decoration-none' style={{fontWeight: '300', fontSize: '14px'}}> <i className='bi-google'></i> Open Google Maps</a>
             </div>
 
               <div className="p-2 rounded  text-start  bg-light" onClick={handleClickSafest} style={{cursor: 'pointer'}}>
-              <p className='m-0 text-start'>
+              <p className='m-0 text-start' style={{fontWeight: '300', fontSize: '14px'}}>
                 Route type: <b> Shortest </b> 
                 </p>
-                <p className='m-0 p-0'>Risk Index: <i className='btn btn-primary px-3 py-1'> {shortestPathWeight} </i> </p>
-                <a href={shortestPathGMaps} target='_blank' className='text-decoration-none'>  <i className='bi-google'></i> Open Google Maps </a>
+                <p className='m-0 p-0' style={{fontWeight: '300', fontSize: '14px'}}>Risk Index: <i className='btn btn-primary px-3 py-1' style={{fontWeight: '300', fontSize: '14px'}}> {shortestPathWeight} </i> </p>
+                <a href={shortestPathGMaps} target='_blank' className='text-decoration-none' style={{fontWeight: '300', fontSize: '14px'}}>  <i className='bi-google'></i> Open Google Maps </a>
  
               </div>
             </div>

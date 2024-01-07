@@ -139,7 +139,7 @@ function HeatMap() {
         console.log(data)
         
         try {
-            const response = await axios.post('http://localhost:8000/heatmap', data);
+            const response = await axios.post('https://thesis-backend-41ta.onrender.com/heatmap', data);
             console.log(response.data);
             setMapHtml(response.data.html);
             setSubmitted(true);
@@ -165,19 +165,16 @@ function HeatMap() {
     {initialContentVisible ? (
         <div className="desc d-lg-flex shadow border rounded d-md-flex py-3 px-3 d-sm-flex d-none flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>  
             <div className=' text-start'>
-            <h4 className=''>
-                <b>
+            <h4 className='' style={{fontWeight: '500'}}>
                   Crime Pattern Analysis
-
-                </b>
               </h4>
-                <p>
+                <p style={{fontWeight: '300', fontSize: '14px'}}>
                 Please use the dropdowns to select your preferences and visualize credible crime data in heatmaps for Iloilo City. This data is sourced from the local police, ensuring reliability and accuracy. Your selections will help generate visual representations of crime patterns, providing valuable insights into the city's safety and security.
 
                 </p>
                 <div className='d-flex gap-2'>
-                <button className='desc btn btn-primary' style={{fontSize: '16px'}} onClick={handleButtonClick2}>Start filtering</button>
-                <button className='desc btn btn-outline-primary' style={{fontSize: '16px'}}>Learn more</button>
+                <button className='desc btn btn-primary' style={{fontWeight: '300', fontSize: '14px'}} onClick={handleButtonClick2}>Start filtering</button>
+                <button className='desc btn btn-outline-primary' style={{fontWeight: '300', fontSize: '14px'}}>Learn more</button>
 
                 </div>
             </div>
@@ -186,18 +183,19 @@ function HeatMap() {
       <div className="desc d-lg-flex shadow border rounded d-md-flex py-4 px-3 d-sm-flex d-none flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '10px', left: '10px', zIndex: 999, fontSize: '16px'}}>
 
        <form onSubmit={handleSubmit} className=' text-start d-flex flex-column'>
-       <p className='p-0 m-2 text-light-emphasis ' style={{fontWeight: ''}}> FILTER DATA </p>
-            <div className=' gap-2 d-flex'>
+       <p className='p-0 m-2 text-light-emphasis ' style={{fontWeight: '500'}}> Crime Pattern Analyzation </p>
+            <div className=' gap-2 d-flex' style={{fontWeight: '300', fontSize: '14px'}}>
             <Select
               placeholder="All Days (Default)..."
               className='w-100'
               isMulti
               options={dayOptions}
               onChange={selectedOptions => setDay(selectedOptions.map(option => option.value))}
+              
             />
            </div>
 
-            <div className=' gap-2 d-flex mt-2'>
+            <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
             <Select
               placeholder="All Months (Default)..."
               className='w-100'
@@ -207,7 +205,7 @@ function HeatMap() {
             />
            </div>
            
-           <div className=' gap-2 d-flex mt-2'>
+           <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
             <Select
               placeholder="All Years (Default)..."
               className='w-100'
@@ -218,7 +216,7 @@ function HeatMap() {
            </div>
 
 
-           <div className=' gap-2 d-flex mt-2'>
+           <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
            <Select
            placeholder="All Districts (Default)..."
             className='w-100'
@@ -229,7 +227,7 @@ function HeatMap() {
            </div>
 
 
-           <div className=' gap-2 d-flex mt-2'>
+           <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
            <Select
            placeholder="All Categories (Default)..."
             className='w-100'
@@ -241,7 +239,7 @@ function HeatMap() {
 
 
            <div className='d-flex justify-content-end mt-4'>
-           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="➡️ Apply Filters" />
+           <input style={{fontWeight: '300', fontSize: '14px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="Apply Filters" />
            </div>
        </form>
 
@@ -254,17 +252,15 @@ function HeatMap() {
 {isVisibleMobile && (
         <div className="d-lg-none desc d-md-none py-4 px-4 d-sm-none d-flex flex-column gap-2 col-lg-4 col-md-5 col-sm-6 col-12" style={{ backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px' }}>
           <div className='text-start'>
-            <h4>
-              <b>
+            <h4 style={{fontWeight: '300'}}> 
                 Crime Pattern Analysis
-              </b>
             </h4>
-            <p>
+            <p style={{fontWeight: '300', fontSize: '14px'}}>
               Please use the dropdowns to select your preferences and visualize credible crime data in heatmaps for Iloilo City. This data is sourced from the local police, ensuring reliability and accuracy. Your selections will help generate visual representations of crime patterns, providing valuable insights into the city's safety and security.
             </p>
             <div className='d-flex gap-2'>
-              <button className='btn btn-primary desc' style={{fontSize: '16px'}} onClick={handleStartFiltering}>Start filtering</button>
-              <button className='btn btn-outline-primary desc' style={{fontSize: '16px'}}>Learn more</button>
+              <button className='btn btn-primary desc' style={{fontWeight: '300', fontSize: '14px'}} onClick={handleStartFiltering}>Start filtering</button>
+              <button className='btn btn-outline-primary desc' style={{fontWeight: '300', fontSize: '14px'}}>Learn more</button>
             </div>
           </div>
         </div>
@@ -290,8 +286,8 @@ function HeatMap() {
 
       <div className="d-lg-none desc d-md-none py-4 px-3 d-sm-none d-flex flex-column gap-2 col-3 col-md-4 col-sm-5 col-12" style={{  backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 999, fontSize: '16px'}}>
    <form onSubmit={handleSubmit} className=' text-start d-flex flex-column'>
-       <p className='p-0 fw-bold '>MAIN FILTER</p>
-            <div className=' gap-2 d-flex'>
+       <p className='p-0' style={{fontWeight: '500'}}>Crime Pattern Analyzation</p>
+            <div className=' gap-2 d-flex' style={{fontWeight: '300', fontSize: '14px'}}>
             <Select
               placeholder="All Days (Default)..."
               className='w-100'
@@ -301,7 +297,7 @@ function HeatMap() {
             />
            </div>
 
-            <div className=' gap-2 d-flex mt-2'>
+            <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
             <Select
             placeholder="All Months (Default)..."
                 className='w-100'
@@ -311,7 +307,7 @@ function HeatMap() {
             />
            </div>
            
-           <div className=' gap-2 d-flex mt-2'>
+           <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
            <Select
            placeholder="All Years (Default)..."
                 className='w-100'
@@ -322,7 +318,7 @@ function HeatMap() {
            </div>
 
 
-           <div className=' gap-2 d-flex mt-2'>
+           <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
            <Select
            placeholder="All Districts (Default)..."
               className='w-100'
@@ -333,7 +329,7 @@ function HeatMap() {
            </div>
 
 
-           <div className=' gap-2 d-flex mt-2'>
+           <div className=' gap-2 d-flex mt-2' style={{fontWeight: '300', fontSize: '14px'}}>
            <Select
            placeholder="All Categories (Default)..."
               className='w-100'
@@ -346,10 +342,10 @@ function HeatMap() {
 
            <div className='px-3 d-flex justify-content-end mt-2 gap-2'>
            <button className="btn btn-outline-primary  d-flex gap-1" onClick={handleButtonClick}>
-   <i className='desc bi-arrow-left m-0'></i> <p className='m-0' style={{fontSize: '16px'}}>  Back </p>
+   <i className='desc bi-arrow-left m-0'></i> <p className='m-0' style={{fontWeight: '300', fontSize: '14px'}}>  Back </p>
   </button>
 
-           <input style={{fontSize: '16px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="➡️ Apply Filters" />
+           <input style={{fontWeight: '300', fontSize: '14px'}} className='btn btn-primary px-3 py-1 desc' type="submit" value="Apply Filters" />
            </div>
        </form>
       </div>

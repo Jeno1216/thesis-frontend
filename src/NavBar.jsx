@@ -37,29 +37,22 @@ function NavBar() {
         <div className='d-lg-flex d-none h-100 justify-content-center align-items-center gap-4' style={{fontSize: '16px'}}>
 
         <div className='' data-aos="fade-down" data-aos-delay="100" >
-        <Link to='/' style={{textDecoration: 'none', color: 'black'}}>Route</Link>
+        <Link to='/' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}}>Route</Link>
         </div>
 
         <div data-aos="fade-down" data-aos-delay="200">
-        <Link to='heatmap' style={{textDecoration: 'none', color: 'black'}} >Heatmap</Link>
-        </div>
-
-        <div data-aos="fade-down" data-aos-delay="300">
-        <Link to='analytics' style={{textDecoration: 'none', color: 'black'}} > Analytics </Link>
+        <Link to='heatmap' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}} >Heatmap</Link>
         </div>
 
         <div data-aos="fade-down" data-aos-delay="400">
-        <Link to='about' style={{textDecoration: 'none', color: 'black'}} >About</Link>
+        <Link to='about' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}} >About</Link>
         </div>
 
 
         <div  className='d-flex gap-2' >
-        <div data-aos="fade-down" data-aos-delay="500" >
-          <Link to='heatmap' className='btn btn-primary ' style={{textDecoration: 'none', color: 'white', fontSize: '16px'}} >Sign up</Link>
-        </div>
 
         <div data-aos="fade-down" data-aos-delay="600">
-          <Link to='login' className='btn btn-outline-primary' style={{textDecoration: 'none', fontSize: '16px'}} >Sign in</Link>
+          <Link to='/login'  className='btn btn-outline-primary' style={{textDecoration: 'none', fontWeight: '300', fontSize: '14px'}} >Admin</Link>
         </div>
 
         </div>
@@ -68,12 +61,9 @@ function NavBar() {
         {/** Mid Screen View  */}
         <div className='d-lg-none d-md-flex d-none gap-2 justify-content-center align-items-center' style={{fontSize: '16px'}}>
         <div data-aos="fade-down" data-aos-delay="100">
-          <Link to='heatmap' className='btn btn-primary ' style={{textDecoration: 'none', color: 'white', fontSize: '16px'}} >Sign up</Link>
+          <Link to='/login' className='btn btn-primary ' style={{textDecoration: 'none', color: 'white', fontWeight: '300', fontSize: '14px'}} >Admin</Link>
         </div>
 
-        <div data-aos="fade-down" data-aos-delay="200">
-          <Link to='heatmap' className='btn btn-outline-primary' style={{textDecoration: 'none', fontSize: '16px'}} >Sign in</Link>
-        </div>
 
         <div data-aos="fade-down" data-aos-delay="300" className='' onClick={handleButtonClick}>
           <p  className='btn btn-outline-primary m-0' style={{textDecoration: 'none', fontSize: '16px'}} ><i className='bi-list'></i></p>
@@ -97,20 +87,15 @@ function NavBar() {
         <div className='d-flex bg-light w-100 d-flex justify-content-center text-center align-items-center rounded p-3'>
         <div className='d-flex flex-column gap-3 ' style={{fontSize: '16px'}}>
         <div className='' >
-        <Link to='/' style={{textDecoration: 'none', color: 'black'}}>Route</Link>
+        <Link to='/' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}}>Route</Link>
         </div>
 
         <div>
-        <Link to='heatmap' style={{textDecoration: 'none', color: 'black'}} >Heatmap</Link>
+        <Link to='heatmap' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}} >Heatmap</Link>
         </div>
 
         <div>
-        <Link to='analytics' style={{textDecoration: 'none', color: 'black'}} >Analytics</Link>
-        </div>
-
-
-        <div>
-        <Link to='about' style={{textDecoration: 'none', color: 'black'}} >About</Link>
+        <Link to='about' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}} >About</Link>
         </div>
 
         </div>
@@ -125,29 +110,22 @@ function NavBar() {
         <div className='d-flex flex-column gap-3 ' style={{fontSize: '14px'}}>
           
         <div className='' >
-        <Link to='/' style={{textDecoration: 'none', color: 'black'}}>Route</Link>
+        <Link to='/' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}}>Route</Link>
         </div>
 
         <div>
-        <Link to='heatmap' style={{textDecoration: 'none', color: 'black'}} >Heatmap</Link>
+        <Link to='heatmap' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}} >Heatmap</Link>
         </div>
 
         <div>
-        <Link to='analytics' style={{textDecoration: 'none', color: 'black'}} >Analytics</Link>
-        </div>
-
-        <div>
-        <Link to='about' style={{textDecoration: 'none', color: 'black'}} >About</Link>
+        <Link to='about' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}} >About</Link>
         </div>
 
 
         <div className='d-flex  gap-2'>
-        <div>
-          <Link to='heatmap' className='btn btn-primary ' style={{textDecoration: 'none', color: 'white', fontSize: '14px'}} >Sign up</Link>
-        </div>
 
         <div>
-          <Link to='heatmap' className='btn btn-outline-primary' style={{textDecoration: 'none', fontSize: '14px'}} >Sign in</Link>
+          <Link to='/login'  className='btn btn-outline-primary' style={{textDecoration: 'none', fontSize: '14px'}} >Admin</Link>
         </div>
         </div>
         </div>

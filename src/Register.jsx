@@ -5,89 +5,34 @@ import 'react-toastify/dist/ReactToastify.css';
 import { jwtDecode } from "jwt-decode";
 import { Link } from 'react-router-dom';
 
-// Function to set item with expiry in localStorage
-function setWithExpiry(key, value, expiryInMinutes) {
-    const now = new Date();
-    const expiry = now.getTime() + expiryInMinutes * 60 * 1000; // Convert minutes to milliseconds
-    const item = {
-        value: value,
-        expiry: expiry,
-    };
-    localStorage.setItem(key, JSON.stringify(item));
-}
+function Register() {
 
-// Function to get item and check its expiry
-function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key);
-    if (!itemStr) {
-        return null;
-    }
-    const item = JSON.parse(itemStr);
-    const now = new Date();
-    if (now.getTime() > item.expiry) {
-        localStorage.removeItem(key);
-        return null;
-    }
-    return item.value;
-}
-
-function Login() {
-
-    const key = 'officer_position';
-    const value = getWithExpiry(key);
-
-    console.log(value)
-    
+    const [officerID, setOfficerID] = useState();
+    const [officerName, setOfficerName] = useState("");
+    const [officerPosition, setOfficerPosition] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     
     const handleSubmit = async (e) => {
       e.preventDefault();
-    
-      // Create a new FormData instance
-      const formData = new FormData();
-    
-      // Append the username and password
-      formData.append('username', username);
-      formData.append('password', password);
-    
-      // Send the request
-      const response = await axios.post('http://localhost:8000/login', formData);
+      const data = { officer_id: officerID, officer_name: officerName, officer_position: officerPosition, username: username, password: password };
+      const response = await axios.post('http://localhost:8000/register', data);
       
-      // Check if the response is successful
-      if (response.data.access_token) {
-
-        // Decode the token to get the user data
-        const decodedToken = jwtDecode(response.data.access_token);
-        const expiryInMinutes = 60; // Set your desired expiry time in minutes
-
-        // Store the token in local storage with a 1 hour expiry
-        setWithExpiry('token', response.data.access_token, expiryInMinutes);
-
-        // Store the userdata from backend to local storage
-        setWithExpiry('officer_id', decodedToken.officer_id, expiryInMinutes);
-        setWithExpiry('officer_name', decodedToken.officer_name, expiryInMinutes);
-        setWithExpiry('officer_position', decodedToken.officer_position, expiryInMinutes);
-        setWithExpiry('username', decodedToken.username, expiryInMinutes);
-        
-        console.log(response.data.access_token)
-
-        toast.success('Login Successfully.', {
-            position: toast.POSITION.BOTTOM_CENTER // Change position here
-          });
-  
-
-        // Redirect to the "/" page
-        window.location.href = "/dashboard";
-
-      } else {
-        console.log('Failed to log in');
-        toast.error('Unauthorized.', {
-            position: toast.POSITION.BOTTOM_CENTER // Change position here
-          });
-  
+      if (response.data.result == "User Exists."){
+        toast.error('User already exists.', {
+          position: toast.POSITION.BOTTOM_CENTER // Change position here
+        });
       }
-    }
+      else if(response.data.result == "User Registered."){
+        toast.success('User registered.', {
+          position: toast.POSITION.BOTTOM_CENTER // Change position here
+        });
+        window.location.href = "/login";
+
+      }
+        
+  }
+
   
   return (
     <>
@@ -100,6 +45,21 @@ function Login() {
                             <img src="logo.png" style={{width: '200px'}} alt="" />
                         </div>
                         <div style={{position: 'relative'}} className='w-100'>
+                            <i className="bi-person-badge text-light-emphasis" style={{position: 'absolute', top: '10px', left: '10px', fontWeight: '300'}}></i>
+                            <input style={{width: '100%', outline: 'none', fontSize: '16px', fontWeight: '300', paddingLeft: '30px'}} className='border rounded-5 py-2 px-5' type="text" value={officerID} onChange={e => setOfficerID(e.target.value)}  placeholder="Officer ID" />
+                        </div>
+
+                        <div style={{position: 'relative'}} className='w-100 mt-2'>
+                            <i className="bi-person-add text-light-emphasis" style={{position: 'absolute', top: '10px', left: '10px', fontWeight: '300'}}></i>
+                            <input style={{width: '100%', outline: 'none', fontSize: '16px', fontWeight: '300', paddingLeft: '30px'}} className='border rounded-5 py-2 px-5' type="text" value={officerName} onChange={e => setOfficerName(e.target.value)}  placeholder="Officer Name" />
+                        </div>
+
+                        <div style={{position: 'relative'}} className='w-100 mt-2'>
+                            <i className="bi-diagram-2 text-light-emphasis" style={{position: 'absolute', top: '10px', left: '10px', fontWeight: '300'}}></i>
+                            <input style={{width: '100%', outline: 'none', fontSize: '16px', fontWeight: '300', paddingLeft: '30px'}} className='border rounded-5 py-2 px-5' type="text" value={officerPosition} onChange={e => setOfficerPosition(e.target.value)}  placeholder="Officer Position" />
+                        </div>
+
+                        <div style={{position: 'relative'}} className='w-100 mt-2'>
                             <i className="bi bi-person text-light-emphasis" style={{position: 'absolute', top: '10px', left: '10px', fontWeight: '300'}}></i>
                             <input style={{width: '100%', outline: 'none', fontSize: '16px', fontWeight: '300', paddingLeft: '30px'}} className='border rounded-5 py-2 px-5' type="text" value={username} onChange={e => setUsername(e.target.value)}  placeholder="Username" />
                         </div>
@@ -112,8 +72,8 @@ function Login() {
                         </div>
 
                         <div className='mt-2 w-100 d-flex justify-content-between'>
-                            <Link to="/register" className='p-0 text-decoration-none text-dark' style={{fontSize: '12px'}}>Create Account</Link>
-                            <p className='p-0' style={{fontSize: '12px'}}>Forgot Password?</p>
+                            <Link to="/login" className='p-0 text-decoration-none text-dark' style={{fontSize: '12px'}}>Already have an account?</Link>
+                            <p className='p-0' style={{fontSize: '12px'}}></p>
                         </div>
 
                     </form>
@@ -126,4 +86,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Register
