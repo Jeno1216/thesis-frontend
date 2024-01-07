@@ -34,7 +34,7 @@ function NavBar() {
         <img src="logo.png" alt="" style={{width: '150px'}} data-aos="fade-right" />
         </div>
 
-        <div className='d-lg-flex d-none h-100 justify-content-center align-items-center gap-4' style={{fontSize: '16px'}}>
+        <div className='d-lg-flex d-none h-100 justify-content-center align-items-center gap-4 px-2' style={{fontSize: '16px'}}>
 
         <div className='' data-aos="fade-down" data-aos-delay="100" >
         <Link to='/' style={{textDecoration: 'none', color: 'black', fontWeight: '300', fontSize: '14px'}}>Route</Link>
@@ -59,7 +59,7 @@ function NavBar() {
         </div>
 
         {/** Mid Screen View  */}
-        <div className='d-lg-none d-md-flex d-none gap-2 justify-content-center align-items-center' style={{fontSize: '16px'}}>
+        <div className='d-lg-none d-md-flex d-none gap-2 justify-content-center align-items-center px-2'>
         <div data-aos="fade-down" data-aos-delay="100">
           <Link to='/login' className='btn btn-primary ' style={{textDecoration: 'none', color: 'white', fontWeight: '300', fontSize: '14px'}} >Admin</Link>
         </div>
@@ -72,7 +72,7 @@ function NavBar() {
         </div>
 
             {/** Small Screen View  */}
-            <div className='d-lg-none d-md-none d-flex gap-2  justify-content-center align-items-center'>
+            <div className='d-lg-none d-md-none d-flex gap-2  justify-content-center align-items-center px-2'>
 
         <div onClick={handleButtonClick2} data-aos="fade-down" data-aos-delay="100">
           <p  className='btn btn-outline-primary m-0' style={{textDecoration: 'none', fontSize: '14px'}} ><i className='bi-list'></i></p>

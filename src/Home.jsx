@@ -425,7 +425,7 @@ function Home() {
         {showCodeBlock && (
 
       <div className="desc d-flex flex-column gap-2 col-md-4 col-sm-5 col-12" style={{ borderRadius: '-0', backgroundColor: 'white', position: 'absolute', top: '0', left: '0', zIndex: 9999, fontSize: '16px'}}>
-        <div className='p-3'>
+        <div className='p-2'>
 
 <div className="  " >
   <div className='d-flex justify-content-between '>
