@@ -114,7 +114,7 @@ function About() {
                         <br />
                         <b>Mr. John Christopher Mateo</b> - Thesis Co-adviser
                         <br />
-                        <b>PCOL. Ariane Arostique</b> - Police in-charged for data collection.
+                        <b>PEMS Emily Arostique</b> - Police in-charged for data collection.
 
                     </p>
                 </div>
