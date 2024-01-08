@@ -50,7 +50,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get('https://thesis-backend-41ta.onrender.com/')
+      .get('http://localhost:8000/')
       .then((response) => {
         setMessage(response.data.message);
       })
@@ -124,7 +124,7 @@ function Home() {
     const endLng = endLatLng.lng;
 
     try {
-      const response = await axios.post('https://thesis-backend-41ta.onrender.com/find_path', {
+      const response = await axios.post('http://localhost:8000/find_path', {
         start_lat: startLat,
         start_lon: startLng,
         end_lat: endLat,
