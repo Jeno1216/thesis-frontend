@@ -339,7 +339,7 @@ function Dashboard() {
                   <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>WEIGHTS</th>
                   <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>YEAR</th>
                   <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>MONTH</th>
-                  <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>TIME</th>
+                  <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>DATE & TIME</th>
                   <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>LIGHT CONDITION</th>
                   <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>DAY</th>
                   <th className='border p-2' style={{fontSize: '14px', fontWeight: '500'}}>DATE TIME ADDED</th>
@@ -352,7 +352,7 @@ function Dashboard() {
                   <>
                     {alphabetical.map((row, index) => (
                       <tr key={index}>
-                        {row.map((item, i) => <td key={i} className='border cell'>{item}</td>)}
+                        {row.map((item, i) => <td key={i} className='border cell p-2'>{item}</td>)}
                       </tr>
                     ))}
                 <button onClick={fetchAlphabetical} className='mt-4 rounded py-2 px-3 text-light text-start btn btn-primary' style={{border: 'none', fontWeight: '300', fontSize: '14px'}}> 
@@ -363,7 +363,7 @@ function Dashboard() {
                   <>
                     {data.map((row, index) => (
                       <tr key={index}>
-                        {row.map((item, i) => <td key={i} className='border cell'>{item}</td>)}
+                        {row.map((item, i) => <td key={i} className='border cell p-2'>{item}</td>)}
                       </tr>
                     ))}
                   <button onClick={fetchData} className='mt-4 rounded py-2 px-3 text-light text-start btn btn-primary' style={{border: 'none', fontWeight: '300', fontSize: '14px'}}> 
