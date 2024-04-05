@@ -50,7 +50,7 @@ function Dashboard() {
   const page_size = 100;
 
   const fetchData = () => {
-    axios.get(`http://localhost:8000/data/?page=${page}&page_size=${page_size}`)
+    axios.get(`https://thesis-backend-41ta.onrender.com/data/?page=${page}&page_size=${page_size}`)
       .then(response => {
         setData(oldData => [...oldData, ...response.data.data]);
         setPage(oldPage => oldPage + 1);
@@ -59,7 +59,7 @@ function Dashboard() {
   };
 
   const fetchAlphabetical = () => {
-    axios.get(`http://localhost:8000/alphabetical/?page=${pageAlphabetical}&page_size=${page_size}`)
+    axios.get(`https://thesis-backend-41ta.onrender.com/alphabetical/?page=${pageAlphabetical}&page_size=${page_size}`)
     .then(response => {
       setAlphabetical(oldData => [...oldData, ...response.data.alphabetical]);
       setPageAlphabetical(oldPage => oldPage + 1);
@@ -125,7 +125,7 @@ function Dashboard() {
     timeCommitted: timeCommitted, offense: offense , category: category, latitude: latitude, longitude: longitude, weight: weight, 
     year: year, month: month, time:time, lightCondition: lightCondition, day: day, officer: officer };
 
-    const response = await axios.post('http://localhost:8000/add', data);
+    const response = await axios.post('https://thesis-backend-41ta.onrender.com/add', data);
 
     if (response.data.result == "Crime Data Added."){
       toast.success('Crime Data Added.', {
@@ -147,7 +147,7 @@ function Dashboard() {
     console.log(crimeID)
     const data = { crimeID: crimeID };
 
-    const response = await axios.post('http://localhost:8000/delete', data);
+    const response = await axios.post('https://thesis-backend-41ta.onrender.com/delete', data);
 
     if (response.data.result == "Crime Data Deleted."){
       toast.success(`Crime data with ID ${crimeID} successfully deleted.`, {
@@ -176,7 +176,7 @@ function Dashboard() {
       timeCommitted: timeCommitted, offense: offense , category: category, latitude: latitude, longitude: longitude, weight: weight, 
       year: year, month: month, time:time, lightCondition: lightCondition, day: day, officer: officer };
     
-      const response = await axios.post('http://localhost:8000/edit', data);
+      const response = await axios.post('https://thesis-backend-41ta.onrender.com/edit', data);
         console.log('gago');
       if (response.data.result == "Crime Data Updated."){
         toast.success(`Crime data with ID ${crimeID} successfully updated.`, {
