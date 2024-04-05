@@ -52,7 +52,7 @@ function Login() {
       formData.append('password', password);
     
       // Send the request
-      const response = await axios.post('http://localhost:8000/login', formData);
+      const response = await axios.post('https://thesis-backend-41ta.onrender.com/login', formData);
       
       // Check if the response is successful
       if (response.data.access_token) {
